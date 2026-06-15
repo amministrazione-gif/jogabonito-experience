@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Joga Bonito Experience | Eventi 18+ Torino</title>
-  <meta name="description" content="Joga Bonito Experience organizza eventi 18+ nelle migliori discoteche di Torino: Pado, Tuxedo, White Moon, Rumors e molto altro." />
+  <meta name="description" content="Joga Bonito Experience organizza eventi 18+ nelle migliori discoteche di Torino: Pados, Tuxedo, White Moon, Rumors e molto altro." />
 
   <style>
     * {
@@ -22,6 +23,11 @@
       background: #050505;
       color: #ffffff;
       line-height: 1.6;
+      cursor: url('joga-cursor.png') 32 32, auto;
+    }
+
+    a, button {
+      cursor: url('joga-cursor.png') 32 32, pointer;
     }
 
     a {
@@ -34,15 +40,15 @@
       top: 0;
       width: 100%;
       z-index: 1000;
-      background: rgba(5, 5, 5, 0.78);
-      backdrop-filter: blur(12px);
+      background: rgba(5, 5, 5, 0.62);
+      backdrop-filter: blur(14px);
       border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
     .nav {
       max-width: 1180px;
       margin: auto;
-      padding: 18px 22px;
+      padding: 14px 22px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -54,25 +60,22 @@
       gap: 12px;
     }
 
-    .mark {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background:
-        radial-gradient(circle at 35% 30%, #ffffff 0 8%, transparent 9%),
-        conic-gradient(from 180deg, #d7ff3f, #7c3cff, #00e5ff, #d7ff3f);
-      box-shadow: 0 0 30px rgba(215,255,63,0.25);
+    .brand img {
+      width: 54px;
+      height: 54px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 16px rgba(255,255,255,0.35));
     }
 
-    .logo {
+    .logo-text {
       font-weight: 900;
       letter-spacing: 1px;
       text-transform: uppercase;
-      font-size: 17px;
+      font-size: 16px;
       line-height: 1.05;
     }
 
-    .logo span {
+    .logo-text span {
       color: #d7ff3f;
       display: block;
     }
@@ -89,25 +92,40 @@
       padding: 150px 22px 90px;
       display: flex;
       align-items: center;
-      background:
-        linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.94)),
-        radial-gradient(circle at top right, rgba(215,255,63,0.26), transparent 35%),
-        radial-gradient(circle at bottom left, rgba(168,85,247,0.32), transparent 35%),
-        #050505;
-      overflow: hidden;
       position: relative;
+      overflow: hidden;
+      background: #050505;
     }
 
-    .hero:after {
+    .hero video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      filter: saturate(1.08) contrast(1.08);
+    }
+
+    .hero::before {
       content: "";
       position: absolute;
-      width: 520px;
-      height: 520px;
-      right: -140px;
-      bottom: -160px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(215,255,63,0.18), transparent 68%);
-      filter: blur(4px);
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,0.86), rgba(0,0,0,0.46), rgba(0,0,0,0.76)),
+        linear-gradient(180deg, rgba(0,0,0,0.42), rgba(0,0,0,0.92));
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(215,255,63,0.18), transparent 28%),
+        radial-gradient(circle at 85% 75%, rgba(124,58,237,0.25), transparent 30%);
+      pointer-events: none;
     }
 
     .hero-inner {
@@ -115,33 +133,41 @@
       margin: auto;
       width: 100%;
       position: relative;
-      z-index: 2;
+      z-index: 3;
+    }
+
+    .hero-logo {
+      width: 130px;
+      margin-bottom: 22px;
+      filter: drop-shadow(0 0 28px rgba(255,255,255,0.45));
     }
 
     .badge {
       display: inline-block;
       padding: 8px 14px;
-      border: 1px solid rgba(215,255,63,0.55);
+      border: 1px solid rgba(215,255,63,0.7);
       border-radius: 999px;
       color: #d7ff3f;
       font-size: 13px;
       text-transform: uppercase;
       letter-spacing: 1px;
       margin-bottom: 24px;
+      background: rgba(0,0,0,0.32);
     }
 
     h1 {
-      font-size: clamp(48px, 9vw, 112px);
+      font-size: clamp(46px, 9vw, 112px);
       line-height: 0.92;
       text-transform: uppercase;
       max-width: 980px;
       margin-bottom: 28px;
+      letter-spacing: -3px;
     }
 
     .hero p {
       max-width: 700px;
       font-size: 20px;
-      color: #d9d9d9;
+      color: #e6e6e6;
       margin-bottom: 34px;
     }
 
@@ -154,7 +180,7 @@
     .btn {
       padding: 15px 24px;
       border-radius: 999px;
-      font-weight: 800;
+      font-weight: 900;
       text-transform: uppercase;
       font-size: 14px;
       transition: 0.25s ease;
@@ -169,13 +195,13 @@
     }
 
     .btn-secondary {
-      border: 1px solid rgba(255,255,255,0.25);
-      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.28);
+      background: rgba(255,255,255,0.08);
     }
 
     .btn:hover {
       transform: translateY(-3px);
-      opacity: 0.88;
+      opacity: 0.9;
     }
 
     section {
@@ -191,10 +217,11 @@
       font-size: clamp(34px, 5vw, 64px);
       text-transform: uppercase;
       margin-bottom: 16px;
+      letter-spacing: -2px;
     }
 
     .section-subtitle {
-      max-width: 720px;
+      max-width: 760px;
       color: #bdbdbd;
       font-size: 18px;
       margin-bottom: 42px;
@@ -210,11 +237,19 @@
       min-height: 260px;
       padding: 26px;
       border-radius: 26px;
-      background: linear-gradient(145deg, rgba(255,255,255,0.11), rgba(255,255,255,0.035));
+      background:
+        radial-gradient(circle at top right, rgba(215,255,63,0.10), transparent 40%),
+        linear-gradient(145deg, rgba(255,255,255,0.11), rgba(255,255,255,0.035));
       border: 1px solid rgba(255,255,255,0.09);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      transition: 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(215,255,63,0.35);
     }
 
     .card h3 {
@@ -270,6 +305,12 @@
       grid-template-columns: 160px 1fr auto;
       gap: 20px;
       align-items: center;
+      transition: 0.25s ease;
+    }
+
+    .event:hover {
+      border-color: rgba(215,255,63,0.35);
+      transform: translateX(4px);
     }
 
     .event-date {
@@ -297,10 +338,17 @@
       border: 1px solid rgba(255,255,255,0.1);
     }
 
+    .cta img {
+      width: 120px;
+      margin-bottom: 24px;
+      filter: drop-shadow(0 0 24px rgba(255,255,255,0.42));
+    }
+
     .cta h2 {
       font-size: clamp(36px, 6vw, 76px);
       text-transform: uppercase;
       margin-bottom: 18px;
+      letter-spacing: -2px;
     }
 
     .cta p {
@@ -348,6 +396,11 @@
         display: none;
       }
 
+      .brand img {
+        width: 46px;
+        height: 46px;
+      }
+
       .grid,
       .number-row {
         grid-template-columns: 1fr;
@@ -365,6 +418,14 @@
         width: 56px;
         height: 56px;
       }
+
+      h1 {
+        letter-spacing: -1.5px;
+      }
+
+      .hero-logo {
+        width: 100px;
+      }
     }
   </style>
 </head>
@@ -374,8 +435,8 @@
 <header>
   <div class="nav">
     <a class="brand" href="#">
-      <div class="mark"></div>
-      <div class="logo">Joga Bonito <span>Experience</span></div>
+      <img src="logo-joga.png" alt="Logo Joga Bonito Experience">
+      <div class="logo-text">Joga Bonito <span>Experience</span></div>
     </a>
     <nav class="nav-links">
       <a href="#experience">Experience</a>
@@ -389,7 +450,12 @@
 <main>
 
   <section class="hero">
+    <video autoplay muted loop playsinline preload="auto">
+      <source src="video-home.mp4" type="video/mp4">
+    </video>
+
     <div class="hero-inner">
+      <img class="hero-logo" src="logo-joga.png" alt="Joga Bonito Experience">
       <div class="badge">Eventi 18+ • Torino Nightlife</div>
       <h1>La notte di Torino, fatta dai giovani.</h1>
       <p>
@@ -398,7 +464,8 @@
         nelle migliori discoteche della città e non solo.
       </p>
       <div class="buttons">
-        <a class="btn btn-primary" href="https://wa.me/393286129173?text=Ciao%2C%20vorrei%20prenotare%20una%20serata" target="_blank">Prenota su WhatsApp</a>
+        <a class="btn btn-primary" href="https://xceed.me/events/channel/mirko-staropoli-2" target="_blank">Metti in lista</a>
+        <a class="btn btn-secondary" href="https://wa.me/393286129173?text=Ciao%2C%20vorrei%20prenotare%20una%20serata" target="_blank">Prenota su WhatsApp</a>
         <a class="btn btn-secondary" href="tel:+393286129173">Chiama ora</a>
         <a class="btn btn-secondary" href="https://www.instagram.com/jogabonito.experience/" target="_blank">Instagram</a>
       </div>
@@ -476,7 +543,7 @@
         <div class="card">
           <div>
             <div class="day">Sabato</div>
-            <h3>Pado Torino</h3>
+            <h3>Pados Torino</h3>
             <p>Il sabato firmato Joga Bonito Experience: atmosfera estiva, lista e tavoli.</p>
           </div>
         </div>
@@ -522,7 +589,7 @@
             <h3>White Moon / Rumors</h3>
             <p>Start del weekend, ingresso in lista e aggiornamenti su Instagram.</p>
           </div>
-          <a class="btn btn-secondary" href="https://wa.me/393286129173?text=Ciao%2C%20vorrei%20prenotare%20una%20serata" target="_blank">Info</a>
+          <a class="btn btn-secondary" href="https://xceed.me/events/channel/mirko-staropoli-2" target="_blank">Trova evento</a>
         </div>
 
         <div class="event">
@@ -531,16 +598,16 @@
             <h3>Tuxedo Torino</h3>
             <p>Serata 18+, musica, tavoli e accrediti tramite community.</p>
           </div>
-          <a class="btn btn-secondary" href="https://wa.me/393286129173?text=Ciao%2C%20vorrei%20prenotare%20una%20serata" target="_blank">Lista</a>
+          <a class="btn btn-secondary" href="https://xceed.me/events/channel/mirko-staropoli-2" target="_blank">Metti in lista</a>
         </div>
 
         <div class="event">
           <div class="event-date">Sabato</div>
           <div>
-            <h3>Pado Torino</h3>
+            <h3>Pados Torino</h3>
             <p>Il sabato Joga Bonito Experience, pensato per chi vuole esserci davvero.</p>
           </div>
-          <a class="btn btn-secondary" href="https://wa.me/393286129173?text=Ciao%2C%20vorrei%20prenotare%20una%20serata" target="_blank">Prenota</a>
+          <a class="btn btn-secondary" href="https://xceed.me/events/channel/mirko-staropoli-2" target="_blank">Trova evento</a>
         </div>
       </div>
     </div>
@@ -549,6 +616,7 @@
   <section id="contatti">
     <div class="container">
       <div class="cta">
+        <img src="logo-joga.png" alt="Joga Bonito Experience">
         <h2>Entra nella community</h2>
         <p>
           Segui Joga Bonito Experience su Instagram oppure scrivici su WhatsApp per ricevere
@@ -570,7 +638,7 @@
 <footer>
   <div class="footer-inner">
     <div>© 2026 Joga Bonito Experience — Eventi 18+ Torino</div>
-    <div>Instagram • WhatsApp • Liste • Tavoli</div>
+    <div>328 612 9173 • Instagram • WhatsApp • Liste • Tavoli</div>
   </div>
 </footer>
 
