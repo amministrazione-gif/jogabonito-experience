@@ -1,239 +1,36 @@
 <!DOCTYPE html>
-
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Joga Bonito Experience | Eventi 18+ Torino</title>
-  <meta name="description" content="Joga Bonito Experience organizza eventi 18+ nelle migliori discoteche di Torino: Pados Torino, Tuxedo, White Moon e Rumors." />
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #050505;
-      color: #ffffff;
-      line-height: 1.5;
-      cursor: url('joga-cursor.png') 32 32, auto;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-      cursor: url('joga-cursor.png') 32 32, pointer;
-    }
-
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      background: rgba(5, 5, 5, 0.72);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .nav {
-      max-width: 1180px;
-      margin: auto;
-      padding: 14px 22px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-size: 15px;
-    }
-
-    .brand img {
-      width: 48px;
-      height: 48px;
-      object-fit: contain;
-      filter: drop-shadow(0 0 14px rgba(255,255,255,0.35));
-    }
-
-    .brand span {
-      color: #d7ff3f;
-      display: block;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 22px;
-      text-transform: uppercase;
-      font-size: 13px;
-    }
-
-    .hero {
-      min-height: 100vh;
-      position: relative;
-      display: flex;
-      align-items: center;
-      padding: 140px 22px 80px;
-      overflow: hidden;
-      background:
-        radial-gradient(circle at 50% 18%, rgba(215,255,63,0.22), transparent 22%),
-        radial-gradient(circle at 20% 90%, rgba(124,58,237,0.28), transparent 30%),
-        radial-gradient(circle at 90% 80%, rgba(0,229,255,0.16), transparent 28%),
-        linear-gradient(180deg, #050505, #080808 55%, #000000);
-    }
-
-    .hero-video {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: 0;
-      opacity: 0.58;
-      filter: contrast(1.12) saturate(1.08);
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      background:
-        linear-gradient(90deg, rgba(0,0,0,0.88), rgba(0,0,0,0.48), rgba(0,0,0,0.84)),
-        linear-gradient(rgba(0,0,0,0.18), rgba(0,0,0,0.78));
-      pointer-events: none;
-    }
-
-    .hero-inner {
-      max-width: 1180px;
-      margin: auto;
-      width: 100%;
-      position: relative;
-      z-index: 2;
-      text-align: left;
-    }
-
-    .hero-logo {
-      width: 150px;
-      margin-bottom: 24px;
-      filter: drop-shadow(0 0 30px rgba(255,255,255,0.46));
-      animation: pulseLogo 2.2s ease-in-out infinite;
-    }
-
-    @keyframes pulseLogo {
-      0%, 100% {
-        transform: scale(1);
-        filter: drop-shadow(0 0 24px rgba(255,255,255,0.38));
-      }
-      50% {
-        transform: scale(1.08);
-        filter: drop-shadow(0 0 46px rgba(215,255,63,0.55));
-      }
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 8px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(215,255,63,0.75);
-      color: #d7ff3f;
-      text-transform: uppercase;
-      font-size: 13px;
-      letter-spacing: 1px;
-      margin-bottom: 24px;
-      background: rgba(0,0,0,0.34);
-    }
-
-    h1 {
-      font-size: clamp(44px, 9vw, 112px);
-      line-height: 0.92;
-      text-transform: uppercase;
-      max-width: 980px;
-      margin-bottom: 28px;
-      letter-spacing: -3px;
-    }
-
-    .hero p {
-      max-width: 720px;
-      font-size: 20px;
-      color: #e6e6e6;
-      margin-bottom: 34px;
-    }
-
-    .buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-    }
-
-    .btn {
-      padding: 15px 24px;
-      border-radius: 999px;
-      font-weight: 900;
-      text-transform: uppercase;
-      font-size: 14px;
-      transition: 0.25s ease;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .btn-primary {
-      background: #d7ff3f;
-      color: #000;
-    }
-
-    .btn-secondary {
-      border: 1px solid rgba(255,255,255,0.28);
-      background: rgba(255,255,255,0.08);
-    }
-
-    .btn:hover {
-      transform: translateY(-3px);
-      opacity: 0.9;
-    }
-
-    section {
-      padding: 86px 22px;
-    }
-
-    .container {
-      max-width: 1180px;
-      margin: auto;
-    }
-
-    .section-title {
-      font-size: clamp(34px, 5vw, 64px);
-      text-transform: uppercase;
-      margin-bottom: 16px;
-      letter-spacing: -2px;
-    }
-
-    .section-subtitle {
-      max-width: 760px;
-      color: #bdbdbd;
-      font-size: 18px;
-      margin-bottom: 42px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .card {
-      min-height: 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Joga Bonito Experience</title>
+<style>
+body{margin:0;background:#050505;color:#fff;font-family:Arial,sans-serif}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px}
+.hero-logo{
+width:min(78vw,340px);
+animation:pulseLogo 2.5s ease-in-out infinite;
+filter:drop-shadow(0 0 30px rgba(255,255,255,.46));
+}
+@keyframes pulseLogo{
+0%,100%{transform:scale(1)}
+50%{transform:scale(1.12)}
+}
+h1{font-size:clamp(38px,12vw,90px);text-transform:uppercase}
+.buttons{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.btn{padding:14px 22px;border-radius:999px;text-decoration:none;color:white;border:1px solid #444}
+.primary{background:#d7ff3f;color:black;border:none}
+</style>
+</head>
+<body>
+<section class="hero">
+<img class="hero-logo" src="logo-joga.png" alt="Joga Bonito">
+<h1>La notte di Torino, fatta dai giovani.</h1>
+<div class="buttons">
+<a class="btn primary" href="https://xceed.me/events/channel/mirko-staropoli-2">Metti in lista</a>
+<a class="btn" href="https://wa.me/393286129173?text=Ciao,%20vorrei%20prenotare%20una%20serata">WhatsApp</a>
+<a class="btn" href="https://www.instagram.com/jogabonito.experience/">Instagram</a>
+</div>
+</section>
+</body>
+</html>
